@@ -18,11 +18,25 @@ var messageMaker = function(number) {
 }
 
 var messageShifter = function(message) {
-    message.split('');
-    for (i=0; i <= message.length(); i++) {
-        console.log(message[i]);
-        if (message[i] = "a") {
-
+    output = [];
+    messageArray = message.toLowerCase().split('');
+    console.log(messageArray)
+    messageArrayLength = parseInt(messageArray.length);
+    console.log(parseInt(messageArray.length));
+    for (i=0; i <= messageArrayLength; i++) {
+        console.log(messageArray[i]);
+        if (messageArray[i] === "a") {
+            output.push("@");
+        } else if (messageArray[i] === "e") {
+            output.push("3");
+        } else if (messageArray[i] === "i") {
+            output.push("1");
+        } else if (messageArray[i] === "o") {
+            output.push("0");
+        } else if (messageArray[i] === "u") {
+            output.push("|_|");
+        } else {
+            output.push(messageArray[i]);
         }
     };
 }
@@ -36,5 +50,6 @@ $(document).ready(function() {
             console.log(number);
           });
         messageMaker(number);
+        $('#result').text(output.reverse().join(''));
     });
 });
